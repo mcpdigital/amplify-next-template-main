@@ -1,9 +1,10 @@
 import prisma from "@/libs/prisma";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import NextAuth, { AuthOptions } from "next-auth";
+import NextAuth from "next-auth";
+import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authOptions: AuthOptions = {
+const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
@@ -27,9 +28,9 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
-  debug: process.env.NODE_ENV === "development",
+  //debug: process.env.NODE_ENV === "development",
   session: { strategy: "jwt" },
-  secret: "secret", // store this in a .env file
+  secret: process.env.NEXTAUTH_SECRET, // store this in a .env file
 };
 
 const handler = NextAuth(authOptions);
