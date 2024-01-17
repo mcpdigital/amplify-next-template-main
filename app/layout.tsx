@@ -1,3 +1,6 @@
+// app/layout.tsx
+
+import ConfigureAmplifyClientSide from "@/components/ConfigureAmplify";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -15,10 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="dark" lang="en">
+    <html lang="en">
       <body
-        className={`bg-slate-800 text-slate-200 font-sans ${inter.className}`}
+        className={`bg-slate-200 tetxt-slate-800 dark:bg-slate-800 dark:text-slate-200 font-sans ${inter.className}`}
       >
+        <ConfigureAmplifyClientSide />
         {children}
       </body>
     </html>
