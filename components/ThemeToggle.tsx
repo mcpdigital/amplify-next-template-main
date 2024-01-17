@@ -9,10 +9,13 @@ export const ThemeToggle = () => {
     setTheme(theme === "light" ? "dark" : "light");
   }
   const switchto = theme === "light" ? "dark" : "light";
-  const addtoClassname = theme === "light" ? "" : "dark";
+  const addtoClassname = theme === "light" ? "" : "dark:";
   return (
-    <div>
-      <div className={theme}>
+    <div className={`${addtoClassname}`}>
+      {`Tailwind className= ${addtoClassname}bg-slate-200 ${addtoClassname}text-slate-800 ${addtoClassname}bg-slate-800 ${addtoClassname}text-slate-200`}
+      <div
+        className={`${addtoClassname}bg-slate-200 ${addtoClassname}text-slate-800 ${addtoClassname}bg-slate-800 ${addtoClassname}text-slate-200`}
+      >
         <button
           className={`mr-4 mt-1 p-1 max-w-[100px] rounded-md dark:bg-slate-200 dark:text-slate-800 bg-slate-800 text-slate-200 ${addtoClassname}`}
           onClick={toggleTheme}
